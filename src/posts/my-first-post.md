@@ -6,7 +6,7 @@ description: Capitalize on low hanging fruit to identify a ballpark value added
 author: Pluriversity
 date: 2024-06-19T19:26:57.644Z
 tags:
-  - Tags
+  - from
 ---
 # This is a Heading h1
 
