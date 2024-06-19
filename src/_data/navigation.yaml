@@ -2,6 +2,6 @@ items:
   - text: Home
     url: /
   - text: Partner
-    url: /partner
+    url: mailto:solutions@pluriversity.in?subject=Request%20for%20consultation&body=Hi%2C%0A%0AI%20came%20across%20your%20website%20and%20would%20like%20to%20consult%20you.%0A%0AMy%20requirements%20are%3A%0A%0AMy%20Name%20is%3A%0A%0A
   - text: Consult
-    url: /consult
+    url: mailto:solutions@pluriversity.in?subject=Request%20for%20consultation&body=Hi%2C%0A%0AI%20came%20across%20your%20website%20and%20would%20like%20to%20consult%20you.%0A%0AMy%20requirements%20are%3A%0A%0AMy%20Name%20is%3A%0A%0A
