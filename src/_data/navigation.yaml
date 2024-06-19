@@ -2,6 +2,6 @@ items:
   - text: Home
     url: /
   - text: Partner
-    url: https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSe4nZc9kbgzA3dppyF6o8NkQkSNRTiRmXFN15q3VFv6VCtqtQ%2Fviewform%3Fusp%3Dsf_link&followup=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSe4nZc9kbgzA3dppyF6o8NkQkSNRTiRmXFN15q3VFv6VCtqtQ%2Fviewform%3Fusp%3Dsf_link&ifkv=AS5LTAQZ74uOniSW-9sTYm7RiNJ-zoaCgZpDzFnGwbKJEDLp73G2DCn8dy_TqbdjnFiQguFMjP9-gw&ltmpl=forms&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-2062848928%3A1718829553444137&ddm=0
+    url: https://docs.google.com/forms/d/e/1FAIpQLSe4nZc9kbgzA3dppyF6o8NkQkSNRTiRmXFN15q3VFv6VCtqtQ/viewform?usp=sf_link
   - text: Consult
     url: mailto:solutions@pluriversity.in
