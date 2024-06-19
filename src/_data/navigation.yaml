@@ -1,9 +1,9 @@
 items:
   - text: Home
     url: /
-  - text: Consult
-    url: "#"
   - text: Partner
     url: /partner
+  - text: Consult
+    url: "#"
   - text: Blog
     url: /blog
