@@ -1,15 +1,13 @@
 links:
-  - title: Pluriversity
-    url: https://www.pluriversity.in/
-    desc: Pluriversity is an impact management and public relations start-up. The
-      company services the needs of clients using entrepreneurial learnings from
-      social movements.
-  - title: Eleventy
-    url: https://www.11ty.dev/
-    desc: Eleventy is a simpler static site generator.
-  - title: Alpine.js
-    url: https://github.com/alpinejs/alpine
-    desc: A minimal framework for composing JavaScript behavior in your markup.
-  - title: Tailwind CSS
-    url: https://tailwindcss.com/
-    desc: A utility-first CSS framework for rapidly building custom designs.
+  - title: Youth Climate Convening 2024
+    url: /youth-climate-convening-2024
+    desc: Read the report!
+  - title: Youth Climate Justice Center
+    url: /youth-climate-justice-center
+    desc: Decolonising education
+  - title: Partner
+    url: /partner
+    desc: Partner with us for fellowships, projects and Internships
+  - title: Consult
+    url: /consult
+    desc: Book a Consultation!
