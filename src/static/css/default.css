@@ -1,0 +1,11 @@
+.nav-bar{
+    position: -webkit-sticky;
+    position: sticky !important;
+    top: 0;
+}
+.nav-bar > nav{
+    background-color: #fff;
+}
+.nav-logo{
+    width: 50%;
+}
