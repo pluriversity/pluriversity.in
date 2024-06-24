@@ -18,6 +18,11 @@
     {% if prism == true %}
       <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
     {% endif %}
+    {% if page.filePathStem != '/index' %}
+    <link rel="stylesheet" href="/static/css{{ page.filePathStem | replace('/index', '')}}.css">
+    {% else %}
+    <link rel="stylesheet" href="/static/css/home.css">
+    {% endif %}
   </head>
   <body>
     {% include "./partials/navbar.html" %}
