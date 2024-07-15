@@ -1,11 +1,20 @@
+body {
+    background-image: url('/static/img/bgg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
 .nav-bar{
     position: -webkit-sticky;
     position: sticky !important;
     top: 0;
 }
 .nav-bar > nav{
-    background-color: #fff;
+    background-color: #E45577;
+    min-width: 100%;
 }
 .nav-logo{
     width: 50%;
+    margin-left: 1rem;
 }

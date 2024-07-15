@@ -1,7 +1,30 @@
 ---
-layout: blank
+layout: blog
 ---
-
-<div class="flex flex-col items-center justify-center">
-    {% include "reports/ycc/index.html" %}
-</div>
+<section class="mt-15">
+    {% set CJList = collections.convening %}
+    {% for climateJustice in CJList %}
+        {% if climateJustice.data.title and climateJustice.data.title | length >= 1 %}
+            <article class="my-8 blog-article">
+                <div>
+                    <h2 class="font-bold text-3xl text-gray-900 mb-2">
+                        <a href="{{ climateJustice.url | url }}">
+                            {{ climateJustice.data.title }}
+                        </a>
+                    </h2>
+                    {% if climateJustice.data.description %}
+                        <p class="text-lg text-gray-500 mb-3">
+                            {{ climateJustice.data.description }}
+                        </p>
+                    {% endif %}
+                    <label class="text-base leading-6 text-gray-500 mb-3">
+                        <a>by: {{ climateJustice.data.author }}</a>
+                    </label>
+                </div>
+                <a href="{{ climateJustice.url | url }}" class="text-indigo-500 font-bold text-lg">
+                    <div>Read →</div>
+                </a>
+            </article>
+        {% endif %}
+    {% endfor %}
+</section>
