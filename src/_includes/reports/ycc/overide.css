@@ -17,7 +17,7 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         background-color: #E45678;
-        background-image: image-set('bg1.png');
+        background-image: image-set('/static/img/convening/bg1.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 90%;
