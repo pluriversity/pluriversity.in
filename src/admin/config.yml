@@ -30,9 +30,9 @@ collections:
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
-  - label: "Convening"
-    name: "convening"
-    folder: "src/convening"
+  - label: "Convenings"
+    name: "convenings"
+    folder: "src/convenings"
     create: true
     editor:
       preview: false
@@ -109,8 +109,8 @@ collections:
           - label: Tags
             name: tags
             widget: list
-            allow_add: false
+            allow_add: true
             collapsed: false
-            nested_fields:
+            fields:
               - { label: Title, name: title, widget: string }
-              - { label: Tag, name: tag, widget: string }
+              - { label: Tag, name: tag, widget: string } 
