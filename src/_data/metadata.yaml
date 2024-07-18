@@ -1,8 +1,37 @@
-metadata:
-  - text: Home
-    url: /
-  - text: Partner
-    url: https://docs.google.com/forms/d/e/1FAIpQLSe4nZc9kbgzA3dppyF6o8NkQkSNRTiRmXFN15q3VFv6VCtqtQ/viewform?usp=sf_link
-  - text: Consult
-    url: mailto:solutions@pluriversity.in
-    
+tags:
+  - title: OgImageType
+    tag: <meta property="og:image:type" content="image/jpeg">
+  - title: Twitter
+    tag: <meta property="twitter:site" content="@ThereIsNoEarthB">
+  - title: OgType
+    tag: <meta property="og:type" content="website">
+  - title: PageTitle
+    tag: <title>Pluriversity</title>
+  - title: PageDesc
+    tag: <meta name="description" content="">
+  - title: Keywords
+    tag: <meta name="keywords" content="">
+  - title: Robo
+    tag: <meta name="robots" content="index, follow">
+  - title: Title
+    tag: <meta name="title" content="s">
+  - title: Language
+    tag: <meta name="language" content="English">
+  - title: OgImage
+    tag: <meta property="og:image" content="">
+  - title: OgUrl
+    tag: <meta property="og:url" content="">
+  - title: OgTitle
+    tag: <meta property="og:title" content="">
+  - title: OgDesc
+    tag: <meta property="og:description" content="">
+  - title: TwitCard
+    tag: <meta name="twitter:card" content="summary_large_image">
+  - title: TwitTitle
+    tag: <meta property="twitter:title" content="">
+  - title: TwitDisc
+    tag: <meta property="twitter:description" content="">
+  - title: TwitImg
+    tag: <meta property="twitter:image" content="">
+  - title: TwitAltImg
+    tag: <meta property="twitter:image:alt" content="">

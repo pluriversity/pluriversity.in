@@ -106,11 +106,11 @@ collections:
         name: "metadata"
         file: "src/_data/metadata.yaml"
         fields:
-          - label: Meta data
-            name: metadata
+          - label: Tags
+            name: tags
             widget: list
             allow_add: false
             collapsed: false
-            fields:
-              - { label: Title, name: text, widget: string }
-              - { label: URL, name: url, widget: string }
+            nested_fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Tag, name: tag, widget: string }

@@ -16,6 +16,11 @@ description: We are an impact management and public relations start-up that serv
     <abbr title="Pluriversity Solutuons(OPC) Private Limited">Pluriversity</abbr>
     Decolonised solutions inspired by learnings from social movements
   </p> -->
+    <div id="" class="about">
+      {% set aboutUs = collections.about %}
+      <h2>{{ aboutUs[0].data.title }}</h2>
+      <p>{{ aboutUs[0].templateContent | safe }}</p>
+    </div>
     <div class="qlinks">
       {% include "./_includes/partials/content.html" %}
     </div>
