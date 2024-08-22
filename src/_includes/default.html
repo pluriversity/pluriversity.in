@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% for tagg in metadata.tags %}
-    {{ tagg.tag | safe }}
-    {% endfor %}    
+    {% set taggg = metadata.tags %}
+    <meta property="og:image:type" content="{{ taggg[0].tag }}">
+    <meta property="og:type" content="{{ taggg[1].tag }}">
+    <meta property="og:image" content="{{ taggg[2].tag }}">
+    <meta property="og:url" content="{{ taggg[3].tag }}">
+    <meta property="og:description" content="{{ taggg[5].tag }}">
+    <meta name="keywords" content="{{ taggg[6].tag }}">
+    <meta name="robots" content="{{ taggg[7].tag }}">
+    <meta name="language" content="{{ taggg[8].tag }}">
+    <meta name="twitter:card" content="{{ taggg[9].tag }}">
+    <meta property="twitter:site" content="{{ taggg[10].tag }}">
+    <meta property="twitter:title" content="{{ taggg[11].tag }}">
+    <meta property="twitter:description" content="{{ taggg[12].tag }}">
+    <meta property="twitter:image" content="{{ taggg[13].tag }}">
+    <meta property="twitter:image:alt" content="{{ taggg[14].tag }}">    
     <title>
       {{title}}
     </title>

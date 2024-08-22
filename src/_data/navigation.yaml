@@ -1,7 +1,8 @@
 items:
   - text: Home
     url: /
-  - text: Incubation
-    url: /youth-climate-justice-centre/
-  - text: Convenings
-    url: /convenings/
+  - text: Partner
+    url: https://docs.google.com/forms/d/e/1FAIpQLSe4nZc9kbgzA3dppyF6o8NkQkSNRTiRmXFN15q3VFv6VCtqtQ/viewform?usp=sf_link
+  - text: Consult
+    url: mailto:solutions@pluriversity.in
+    

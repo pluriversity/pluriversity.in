@@ -1,37 +1,31 @@
 tags:
   - title: OgImageType
-    tag: <meta property="og:image:type" content="image/jpeg">
-  - title: Twitter
-    tag: <meta property="twitter:site" content="@ThereIsNoEarthB">
+    tag: "image/jpeg"
   - title: OgType
-    tag: <meta property="og:type" content="website">
-  - title: PageTitle
-    tag: <title>Pluriversity</title>
-  - title: PageDesc
-    tag: <meta name="description" content="">
-  - title: Keywords
-    tag: <meta name="keywords" content="">
-  - title: Robo
-    tag: <meta name="robots" content="index, follow">
-  - title: Title
-    tag: <meta name="title" content="s">
-  - title: Language
-    tag: <meta name="language" content="English">
+    tag: "website"
   - title: OgImage
-    tag: <meta property="og:image" content="">
+    tag: "/static/img/pluriversity-logo-1.0.png"
   - title: OgUrl
-    tag: <meta property="og:url" content="">
+    tag: "https://pluriversity.in"
   - title: OgTitle
-    tag: <meta property="og:title" content="">
+    tag: "Pluriversity"
   - title: OgDesc
-    tag: <meta property="og:description" content="">
+    tag: "Pluriversity is an impact management and public relations start-up. The company services the needs of clients using entrepreneurial learnings from social movements."
+  - title: Keywords
+    tag: "social movements, public relations, impact management"
+  - title: Robo
+    tag: "index, follow"
+  - title: Language
+    tag: "English"
   - title: TwitCard
-    tag: <meta name="twitter:card" content="summary_large_image">
+    tag: "summary_large_image"
+  - title: TwitterHandle
+    tag: "@Pluriversity"
   - title: TwitTitle
-    tag: <meta property="twitter:title" content="">
+    tag: "Pluriversity"
   - title: TwitDisc
-    tag: <meta property="twitter:description" content="">
+    tag: "Pluriversity is an impact management and public relations start-up. The company services the needs of clients using entrepreneurial learnings from social movements."
   - title: TwitImg
-    tag: <meta property="twitter:image" content="">
+    tag: "/static/img/pluriversity-logo-1.0.png"
   - title: TwitAltImg
-    tag: <meta property="twitter:image:alt" content="">
+    tag: "/static/img/pluriversity-logo-1.0.png"

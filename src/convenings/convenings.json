@@ -1,3 +1,6 @@
 {
-    "tags": "convenings"
+    "layout": "posts",
+    "tags": [
+        "convenings"
+    ]
 }

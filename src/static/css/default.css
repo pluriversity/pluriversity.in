@@ -9,6 +9,8 @@ body {
     position: -webkit-sticky;
     position: sticky !important;
     top: 0;
+    z-index: 100;
+
 }
 .nav-bar > nav{
     background-color: #E45577;
@@ -17,4 +19,48 @@ body {
 .nav-logo{
     width: 50%;
     margin-left: 1rem;
+}
+.footer-logo{
+    align-self: center;
+}
+.footer-cont{
+    background-color: #E45577;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 2rem;
+    padding: 1vh 2vw;
+    width: 40vw;
+    min-width: fit-content;
+    border-radius: 30px 30px 0 0;
+}
+.footer-nav{
+    margin-left: 1vw;
+    justify-self: start;
+    align-self: center;
+}
+.footer-nav > ul{
+    text-align: start;
+    width: fit-content;
+    min-width: fit-content;
+}
+.footer-nav > ul > a{
+    color: #FCD8E5;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: .2rem;
+}
+.footer-nav > ul > a:hover{
+    color: #594FAA;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+}
+.footer-logo > hr{
+    margin: 0.5rem auto;
+}
+.footer-small{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }

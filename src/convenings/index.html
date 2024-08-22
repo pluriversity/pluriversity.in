@@ -3,7 +3,7 @@ layout: blog
 ---
 <section class="mt-15">
     {% set CJList = collections.convenings %}
-    {% for climateJustice in CJList %}
+    {% for climateJustice in CJList | reverse %}
         {% if climateJustice.data.title and climateJustice.data.title | length >= 1 %}
             <article class="my-8 blog-article">
                 <div>
