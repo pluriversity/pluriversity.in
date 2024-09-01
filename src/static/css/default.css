@@ -47,8 +47,8 @@ body {
 .footer-nav > ul > a{
     color: #FCD8E5;
     font-weight: 400;
-    font-size: 20px;
-    letter-spacing: .2rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
 }
 .footer-nav > ul > a:hover{
     color: #594FAA;
@@ -61,9 +61,9 @@ footer{
     margin: 0.5rem auto;
 }
 .footer-small{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
 }
 
 @media (max-width: 1024px) {
