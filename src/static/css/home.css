@@ -6,7 +6,7 @@
 }
 .about{
     position: relative;
-    min-height: 375px;
+    /* min-height: 375px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,5 +33,6 @@
     border-radius: 10px;
 }
 .header-img{
-    width: 50%;
+    max-width: 700px;
+    width: 95vw;
 }
