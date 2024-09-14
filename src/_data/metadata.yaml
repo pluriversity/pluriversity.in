@@ -1,31 +1,35 @@
 tags:
   - title: OgImageType
-    tag: "image/jpeg"
+    tag: image/jpeg
   - title: OgType
-    tag: "website"
+    tag: website
   - title: OgImage
-    tag: "/static/img/pluriversity-logo-1.0.png"
+    tag: /static/img/pluriversity-logo-1.0.png
   - title: OgUrl
-    tag: "https://pluriversity.in"
+    tag: https://pluriversity.in
   - title: OgTitle
-    tag: "Pluriversity"
+    tag: Pluriversity
   - title: OgDesc
-    tag: "Pluriversity is an impact management and public relations start-up. The company services the needs of clients using entrepreneurial learnings from social movements."
+    tag: Pluriversity is an impact management and public relations start-up. We
+      service the needs of clients by leveraging learnings from social
+      movements.
   - title: Keywords
-    tag: "social movements, public relations, impact management"
+    tag: social movements, public relations, impact management
   - title: Robo
-    tag: "index, follow"
+    tag: index, follow
   - title: Language
-    tag: "English"
+    tag: English
   - title: TwitCard
-    tag: "summary_large_image"
+    tag: summary_large_image
   - title: TwitterHandle
     tag: "@Pluriversity"
   - title: TwitTitle
-    tag: "Pluriversity"
+    tag: Pluriversity
   - title: TwitDisc
-    tag: "Pluriversity is an impact management and public relations start-up. The company services the needs of clients using entrepreneurial learnings from social movements."
+    tag: Pluriversity is an impact management and public relations start-up. We
+      service the needs of clients by leveraging learnings from social
+      movements.
   - title: TwitImg
-    tag: "/static/img/pluriversity-logo-1.0.png"
+    tag: /static/img/pluriversity-logo-1.0.png
   - title: TwitAltImg
-    tag: "/static/img/pluriversity-logo-1.0.png"
+    tag: /static/img/pluriversity-logo-1.0.png
