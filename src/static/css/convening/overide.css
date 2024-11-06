@@ -11,6 +11,29 @@
   outline: 1px solid #FBC9DB;
 }
 
+body::-webkit-scrollbar {
+    width: 0;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #E45678;
+  outline: 1px solid #FBC9DB;
+}
+
+#page-container {
+    margin: 4rem 0 10rem 0;
+    height: 100vh;
+}
+
+#page-container {
+    margin: 4rem 0 10rem 0;
+    height: 100vh;
+}
+
 @media (min-width: 596px) {
     #page-container {
         display: flex;
@@ -58,7 +81,7 @@
         position: absolute;
         bottom: unset;
         right: unset;
-        top: 1;
+        top: 0;
     }
 
     .pf {

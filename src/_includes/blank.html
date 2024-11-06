@@ -1,13 +1,48 @@
 {% set cssPath = "/static/css/convening" %}
 {% set jsPath = "/static/js/convening" %}
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="utf-8"/>
-<meta name="generator" content="pdf2htmlEX"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{{cssPath}}/base.min.css"/>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="pdf2htmlEX"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% set taggg = metadata.tags %}
+    <meta property="og:image:type" content="{{ taggg[0].tag }}">
+    <meta property="og:type" content="{{ taggg[1].tag }}">
+    <meta property="og:image" content="{{ taggg[2].tag }}">
+    <meta property="og:url" content="{{ taggg[3].tag }}">
+    <meta property="og:description" content="{{ taggg[5].tag }}">
+    <meta name="keywords" content="{{ taggg[6].tag }}">
+    <meta name="robots" content="{{ taggg[7].tag }}">
+    <meta name="language" content="{{ taggg[8].tag }}">
+    <meta name="twitter:card" content="{{ taggg[9].tag }}">
+    <meta property="twitter:site" content="{{ taggg[10].tag }}">
+    <meta property="twitter:title" content="{{ taggg[11].tag }}">
+    <meta property="twitter:description" content="{{ taggg[12].tag }}">
+    <meta property="twitter:image" content="{{ taggg[13].tag }}">
+    <meta property="twitter:image:alt" content="{{ taggg[14].tag }}">    
+    <title>
+      {{title}}
+    </title>
+    <meta property="og:title" content="{{title}}"/>
+    <meta property="og:image" content="https://pluriversity.in/static/img/form-and-linkedin-header.png" />
+    {% if description %}
+      <meta name="description" content="{{description}}"/>
+      <meta property="og:description" content="{{description}}" />
+    {% endif %}
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    {% if prism == true %}
+      <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
+    {% endif %}
+    <link rel="stylesheet" href="/static/css/default.css">
+    {% if page.filePathStem != '/index' %}
+    <link rel="stylesheet" href="/static/css{{ page.filePathStem | replace('/index', '')}}.css">
+    {% else %}
+    <link rel="stylesheet" href="/static/css/home.css">
+    {% endif %}
+    <link rel="stylesheet" href="{{cssPath}}/base.min.css"/>
 <link rel="stylesheet" href="{{cssPath}}/fancy.min.css"/>
 <link rel="stylesheet" href="{{cssPath}}/index.css"/>
 <script src="{{jsPath}}/compatibility.min.js"></script>
@@ -19,10 +54,10 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({});
 </script>
 <title></title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="{{cssPath}}/overide.css"/>
 <script src="{{jsPath}}/overide.js"></script>
-</head>
-  <body>
+<link rel="stylesheet" href="{{cssPath}}/overide.css"/>
+  </head>
+  <body class="">
     {% include "./partials/navbar.html" %}
 
     {{ content | safe }}
