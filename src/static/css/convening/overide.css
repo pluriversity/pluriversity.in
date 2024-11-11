@@ -24,16 +24,6 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid #FBC9DB;
 }
 
-#page-container {
-    margin: 4rem 0 10rem 0;
-    height: 100vh;
-}
-
-#page-container {
-    margin: 4rem 0 10rem 0;
-    height: 100vh;
-}
-
 @media (min-width: 596px) {
     #page-container {
         display: flex;
@@ -44,10 +34,11 @@ body::-webkit-scrollbar-thumb {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 90%;
-        top: 0;
+        top: 20;
         bottom: unset;
         right: unset;
         height: 100%;
+        /* margin: 4rem 0 10rem 0; */
     }
 
     .pc {
@@ -59,14 +50,28 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
+.nav-bar{
+    display: none !important;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #E45678;
+    padding: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+footer{
+    display: none;
+}
+
 @media (max-width: 595px) {
 
-    body, html {
-    margin: 0;
-    padding: 0;
-    height: 0;
-    width: 0;
-    display: unset;
+    body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
     .pc{
         display: unset;
@@ -78,7 +83,7 @@ body::-webkit-scrollbar-thumb {
         justify-content: center;
         background-image: none;
         background-color: #E45678;
-        position: absolute;
+        position: relative;
         bottom: unset;
         right: unset;
         top: 0;
