@@ -28,11 +28,9 @@ As Grace Lee Boggs said, “The only way to survive is by taking care of each ot
 
 Within movements, often unsafe spaces get replicated. How do we collectively fight if our spaces are unsafe for people to engage and stay? The Youth Climate Convening addressed the question of safety through a POSH training and resource sharing for the participants. This knowledge was crucial for ensuring that our movement remains a safe space for all.
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXenQyyr4XYwR4P-03mn2Xabtngftwv2VNYrhJwGbVuRohE6PhSoc8LAe3UcTbfKzAnaeYP1Ssz4SMHxQDQuwQfcOAeG6Y6B-IRoTp0QtVJoC74QLF8g6gRbE56HeGI3hNZ5oljpsD5q00cpLciPSQ0wfTei?key=9vNazVV5TVjOjj0PZU5ERQ)
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXenQyyr4XYwR4P-03mn2Xabtngftwv2VNYrhJwGbVuRohE6PhSoc8LAe3UcTbfKzAnaeYP1Ssz4SMHxQDQuwQfcOAeG6Y6B-IRoTp0QtVJoC74QLF8g6gRbE56HeGI3hNZ5oljpsD5q00cpLciPSQ0wfTei?key=9vNazVV5TVjOjj0PZU5ERQ)![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXd3oFCUaVwZ6u948n_wNXuatyrHDW07Eh8SoXofZKdgCyWM4cgT_BBoVILwdE9znYPhap71FNLkQrgDIAray2TrqHJbGtg0BAbkrj_sj_182eIy7CcWxCKyF7Hxl1OGBcBTlvBmwFsTCGYcAQHm0msUzLHo?key=9vNazVV5TVjOjj0PZU5ERQ)
 
 The convening also allowed us to redefine our individual roles in the broader movement and foster a deeper sense of community. Through open discussions, we unearthed shared challenges—emotional turmoil, the struggle to balance our advocacy with personal life, and the difficulty of sustaining energy in the face of constant crisis. These dialogues forged bonds built on empathy, vulnerability, and solidarity, reminding us that we are stronger together.
-
-
 
 At the core of our movement is a commitment to radical love and inclusivity. We are driven by principles of anti-caste and feminist organising, collective care, and decolonization. The climate crisis is not just an environmental issue; it is deeply tied to social justice. By addressing the root causes of environmental destruction, we amplify the voices of those most impacted and create space for everyone in our fight for climate justice.
 
