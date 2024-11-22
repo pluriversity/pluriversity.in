@@ -5,28 +5,28 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% set taggg = metadata.tags %}
-    <meta property="og:image:type" content="{{ taggg[0].tag }}">
+    <meta property="og:image:type" content="{{ image | default(taggg[0].tag) }}">
     <meta property="og:type" content="{{ taggg[1].tag }}">
-    <meta property="og:image" content="{{ taggg[2].tag }}">
+    <meta property="og:image" content="{{ image | default(taggg[2].tag) }}">
     <meta property="og:url" content="{{ taggg[3].tag }}">
-    <meta property="og:description" content="{{ taggg[5].tag }}">
+    <meta property="og:description" content="{{ description | default(taggg[5].tag) }}">
     <meta name="keywords" content="{{ taggg[6].tag }}">
     <meta name="robots" content="{{ taggg[7].tag }}">
     <meta name="language" content="{{ taggg[8].tag }}">
     <meta name="twitter:card" content="{{ taggg[9].tag }}">
     <meta property="twitter:site" content="{{ taggg[10].tag }}">
-    <meta property="twitter:title" content="{{ taggg[11].tag }}">
-    <meta property="twitter:description" content="{{ taggg[12].tag }}">
-    <meta property="twitter:image" content="{{ taggg[13].tag }}">
-    <meta property="twitter:image:alt" content="{{ taggg[14].tag }}">    
+    <meta property="twitter:title" content="{{ title | default(taggg[11].tag) }}">
+    <meta property="twitter:description" content="{{ description | default(taggg[12].tag) }}">
+    <meta property="twitter:image" content="{{ image | default(taggg[13].tag) }}">
+    <meta property="twitter:image:alt" content="{{ image | default(taggg[14].tag) }}">    
     <title>
       {{title}}
     </title>
     <meta property="og:title" content="{{title}}"/>
-    <meta property="og:image" content="https://pluriversity.in/static/img/form-and-linkedin-header.png" />
+    <!-- <meta property="og:image" content="https://pluriversity.in/static/img/form-and-linkedin-header.png" /> -->
     {% if description %}
       <meta name="description" content="{{description}}"/>
-      <meta property="og:description" content="{{description}}" />
+      <!-- <meta property="og:description" content="{{description}}" /> -->
     {% endif %}
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
@@ -38,6 +38,9 @@
     <link rel="stylesheet" href="/static/css{{ page.filePathStem | replace('/index', '')}}.css">
     {% else %}
     <link rel="stylesheet" href="/static/css/home.css">
+    {% endif %}
+    {% if 'convenings' in page.filePathStem %}
+    <link rel="stylesheet" href="/static/css/post.css">
     {% endif %}
   </head>
   <body>

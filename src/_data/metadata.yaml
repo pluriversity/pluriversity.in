@@ -4,7 +4,7 @@ tags:
   - title: OgType
     tag: website
   - title: OgImage
-    tag: /static/img/pluriversity-logo-1.0.png
+    tag: https://pluriversity.in/static/img/form-and-linkedin-header.png
   - title: OgUrl
     tag: https://pluriversity.in
   - title: OgTitle
@@ -30,6 +30,6 @@ tags:
       service the needs of clients by leveraging learnings from social
       movements.
   - title: TwitImg
-    tag: /static/img/pluriversity-logo-1.0.png
+    tag: https://pluriversity.in/static/img/form-and-linkedin-header.png
   - title: TwitAltImg
     tag: /static/img/pluriversity-logo-1.0.png
