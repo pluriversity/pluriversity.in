@@ -7,3 +7,6 @@ body {
     background-attachment: fixed;
 }
 
+article > img{
+    margin: 12.8px 0 !important;
+}
