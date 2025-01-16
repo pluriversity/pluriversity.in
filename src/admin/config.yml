@@ -68,6 +68,14 @@ collections:
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
+  - label: "Footer Links"
+    name: "footerLinks"
+    folder: "src/footer"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Body", name: "body", widget: "markdown" }
   - label: "Settings"
     name: "settings"
     editor:

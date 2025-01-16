@@ -5,6 +5,10 @@ body {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr min-content;
 }
 .nav-bar{
     position: -webkit-sticky;
