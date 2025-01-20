@@ -5,11 +5,9 @@ const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {
 
-  // Copy CSS Folder to /_site
   eleventyConfig.addPassthroughCopy("./src/static/css");
-
-  // Copy JS Folder to /_site
   eleventyConfig.addPassthroughCopy("./src/static/js");
+  eleventyConfig.addPassthroughCopy("./src/static/vid");
 
   // Disable automatic use of your .gitignore
   eleventyConfig.setUseGitIgnore(false);

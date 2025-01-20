@@ -9,6 +9,9 @@ image: https://lh7-rt.googleusercontent.com/docsz/AD_4nXfdQftNGslc9loULRbtzBLrMk
 tags:
   - Tags
 ---
+
+<iframe src="/static/vid/ycc.mp4" height="418.5" width="743.5" frameborder="0" allowfullscreen="" title="On Human Rights Day, we are excited to put forth the voices of the people at the Youth Climate Convening 2024. "></iframe>
+
 India is facing extraordinarily damaging impacts of climate change. The remote nature of India’s climate movement means it is difficult to collectivise, unite together and realise climate action. The digital world gave us the space to organise, mobilise and connect with each other despite the distance. 
 
 It’s reassuring to know that so many others share our concerns about the multiple crises facing our world. Knowing you’re not alone fosters hope, especially in times when despair is all too easy to feel. The hope is strengthened knowing that there are countless pockets where young people are steering through the challenges and building resilient support systems. 
