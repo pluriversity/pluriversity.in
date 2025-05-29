@@ -1,3 +1,7 @@
+body{
+    display: block;
+}
+
 #page-container::-webkit-scrollbar {
     width: 0.3em;
 }
