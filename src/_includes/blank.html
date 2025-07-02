@@ -1,5 +1,6 @@
-{% set cssPath = "/static/css/convening" %}
-{% set jsPath = "/static/js/convening" %}
+{% set suffix = year + "/" %}
+{% set cssPath = "/static/css/convening/" %}
+{% set jsPath = "/static/js/convening/"%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,11 +43,11 @@
     {% else %}
     <link rel="stylesheet" href="/static/css/home.css">
     {% endif %}
-    <link rel="stylesheet" href="{{cssPath}}/base.min.css"/>
-<link rel="stylesheet" href="{{cssPath}}/fancy.min.css"/>
-<link rel="stylesheet" href="{{cssPath}}/index.css"/>
-<script src="{{jsPath}}/compatibility.min.js"></script>
-<script src="{{jsPath}}/pdf2htmlEX.min.js"></script>
+    <link rel="stylesheet" href="{{cssPath}}base.min.css"/>
+<link rel="stylesheet" href="{{cssPath}}fancy.min.css"/>
+<link rel="stylesheet" href="{{cssPath}}{{suffix}}index.css"/>
+<script src="{{jsPath}}compatibility.min.js"></script>
+<script src="{{jsPath}}pdf2htmlEX.min.js"></script>
 <script>
 try{
 pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({});
@@ -54,8 +55,9 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({});
 </script>
 <title></title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<script src="{{jsPath}}/overide.js"></script>
-<link rel="stylesheet" href="{{cssPath}}/overide.css"/>
+<script src="{{jsPath}}master-overide.js"></script>
+<link rel="stylesheet" href="{{cssPath}}master-overide.css"/>
+<link rel="stylesheet" href="{{cssPath}}{{suffix}}overide.css"/>
   </head>
   <body class="">
     {% include "./partials/navbar.html" %}

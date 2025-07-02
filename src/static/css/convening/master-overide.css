@@ -1,5 +1,6 @@
 body{
     display: block;
+    height: 100%;
 }
 
 #page-container::-webkit-scrollbar {
@@ -30,27 +31,19 @@ body::-webkit-scrollbar-thumb {
 
 @media (min-width: 596px) {
     #page-container {
+        padding: 0 10vw;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
-        background-color: #E45678;
-        background-image: image-set('/static/img/convening/bg1.png');
+        justify-content: space-around;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: 50% 90%;
         top: 20;
         bottom: unset;
         right: unset;
-        height: 100%;
-        /* margin: 4rem 0 10rem 0; */
     }
 
     .pc {
         display: block;
-    }
-
-    .pf {
-        margin: 13px;
     }
 }
 

@@ -10,6 +10,8 @@ tags:
 ---
 <!--StartFragment-->
 
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7336306167607980034?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
 Walking into my first Youth Climate Convening (YCC), I’ll be honest—I was nervous. The kind of nervousness that comes with imposter syndrome whispering in your ear, telling you maybe you don’t belong here. On top of that, being late and facing multiple bumps in the road didn’t exactly help calm the nerves. In fact, it only added to my anxiety.
 
 But the moment I arrived, I was met with warmth and understanding. The people around me didn’t judge—they just held space. And slowly, I started to feel a little more at ease, a little more comfortable.

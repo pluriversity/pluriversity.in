@@ -1,0 +1,6 @@
+#page-container {
+    background-color: #E45678;
+    background-image: url('/static/img/convening/2024/bgg2.svg');
+    background-position: 50% 90%;
+    /* height: 100%; */
+}
