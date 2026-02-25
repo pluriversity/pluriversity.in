@@ -97,4 +97,4 @@ layout: docs
     Pluriversity may amend this policy from time to time, in line with the law and organizational needs, and will inform teams of any changes.
 
 ---
-  Pluriversity
+  Read our detailed POSH policy <a href="https://docs.google.com/document/d/1Eu5IeF3Xn2ESYoF3svvmZvAVA8uFe1VAzkFwhs4BREM/edit?usp=sharing">here</a>
