@@ -31,7 +31,7 @@ From thinking this experience would be overwhelming to forming lifelong friendsh
 I’m incredibly thankful for this opportunity. To the people I met, to the organizers, to the YCC—thank you. **Thank you for creating a space that doesn’t just talk about change, but actively nurtures it. A space that keeps hope alive and our passions burning strong.**
 
 **Here’s to more spaces like this.** And, to showing up—again and again—for the planet, for each other, and for ourselves.
-
+Access comprehensive insights into what matters most to Indian youth engaged in ecological issues, read the YCC 2025 report here: [Read Here](https://pluriversity.in/convening-post-event-2025/)
 
 
 <!--EndFragment-->
