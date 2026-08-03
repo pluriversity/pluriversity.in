@@ -36,7 +36,7 @@ During the convening, we shared stories, grief, meals, achievements, and our pla
 It was so amazing to live in a space, having young energies, dreams, hopes, smiles, love and care around. 
 I am hopeful that YCC will continue to hold such spaces for me and other young people in need. 
 
-Read the YCC 2026 report here: [Read Here](https://pluriversity.in/convening-post-event-2026/)
+Read the YCC 2026 report here: [Read Here](/convening-post-event-2026/)
 
 
 <!--EndFragment-->
