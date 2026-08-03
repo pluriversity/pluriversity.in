@@ -8,7 +8,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/static/css");
   eleventyConfig.addPassthroughCopy("./src/static/js");
   eleventyConfig.addPassthroughCopy("./src/static/vid");
-  eleventyConfig.addPassthroughCopy("./src/static/ycc26");
 
   // Disable automatic use of your .gitignore
   eleventyConfig.setUseGitIgnore(false);
