@@ -2,14 +2,14 @@
 // Renders pairs (1|2, 3|4, …); the last spread shows a single page if total is odd.
 
 const PDFJS_VERSION = '4.7.76';
-const PDF_URL = 'handbook.pdf';
+const PDF_URL = '/static/ycc26/handbook.pdf';
 
 const viewer = document.getElementById('pdfViewer');
 if (viewer) initViewer().catch(showError);
 
 async function renderCoverThumbnails(pdf) {
   const targets = [
-    { canvas: document.getElementById('heroCoverCanvas'),    page: 1 },
+    { canvas: document.getElementById('heroCoverCanvas'), page: 1 },
     { canvas: document.getElementById('downloadCoverCanvas'), page: 1 },
   ];
 
@@ -24,9 +24,9 @@ async function renderCoverThumbnails(pdf) {
     const cssScale = cssWidth / baseViewport.width;
     const renderViewport = page.getViewport({ scale: cssScale * dpr });
 
-    canvas.width  = Math.floor(renderViewport.width);
+    canvas.width = Math.floor(renderViewport.width);
     canvas.height = Math.floor(renderViewport.height);
-    canvas.style.width  = '100%';
+    canvas.style.width = '100%';
     canvas.style.height = 'auto';
 
     const ctx = canvas.getContext('2d');
@@ -44,16 +44,16 @@ async function initViewer() {
   const pdf = await pdfjsLib.getDocument(PDF_URL).promise;
   const total = pdf.numPages;
 
-  renderCoverThumbnails(pdf).catch(() => {});
+  renderCoverThumbnails(pdf).catch(() => { });
 
-  const leftCanvas  = document.getElementById('pdfLeft');
+  const leftCanvas = document.getElementById('pdfLeft');
   const rightCanvas = document.getElementById('pdfRight');
-  const spread      = document.getElementById('pdfSpread');
-  const loading     = document.getElementById('pdfLoading');
-  const info        = document.getElementById('pdfPageInfo');
-  const prev        = document.getElementById('pdfPrev');
-  const next        = document.getElementById('pdfNext');
-  const cover       = document.getElementById('pdfCover');
+  const spread = document.getElementById('pdfSpread');
+  const loading = document.getElementById('pdfLoading');
+  const info = document.getElementById('pdfPageInfo');
+  const prev = document.getElementById('pdfPrev');
+  const next = document.getElementById('pdfNext');
+  const cover = document.getElementById('pdfCover');
 
   loading.remove();
 
@@ -64,7 +64,7 @@ async function initViewer() {
   const mqSpread = window.matchMedia('(min-width: 720px)');
   let pagesPerSpread = mqSpread.matches ? 2 : 1;
   const displayTotal = () => pagesPerSpread === 2 ? total + 1 : total;
-  const minDisplay   = () => 1;
+  const minDisplay = () => 1;
   let firstDisplay = 1;
 
   const clampDisplay = () => {
@@ -92,9 +92,9 @@ async function initViewer() {
     const cssScale = slotWidth / baseViewport.width;
     const renderViewport = page.getViewport({ scale: cssScale * dpr });
 
-    canvas.width  = Math.floor(renderViewport.width);
+    canvas.width = Math.floor(renderViewport.width);
     canvas.height = Math.floor(renderViewport.height);
-    canvas.style.width  = `${Math.floor(baseViewport.width * cssScale)}px`;
+    canvas.style.width = `${Math.floor(baseViewport.width * cssScale)}px`;
     canvas.style.height = `${Math.floor(baseViewport.height * cssScale)}px`;
 
     const ctx = canvas.getContext('2d');
@@ -106,9 +106,9 @@ async function initViewer() {
 
   // Fill a canvas with a plain white page matching the given dimensions.
   function renderBlank(canvas, width, height) {
-    canvas.width  = Math.floor(width);
+    canvas.width = Math.floor(width);
     canvas.height = Math.floor(height);
-    canvas.style.width  = `${Math.floor(width)}px`;
+    canvas.style.width = `${Math.floor(width)}px`;
     canvas.style.height = `${Math.floor(height)}px`;
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#ffffff';
@@ -118,13 +118,13 @@ async function initViewer() {
   async function renderSpread() {
     const token = ++renderToken;
     clampDisplay();
-    const leftDisplay  = firstDisplay;
+    const leftDisplay = firstDisplay;
     const rightDisplay = leftDisplay + 1;
     const isTwoPage = pagesPerSpread === 2;
     const showRight = isTwoPage && rightDisplay <= displayTotal();
     // In two-page mode the opening edges get a blank partner: the leading page
     // is a virtual blank on the left, and a trailing book leaves a blank on the right.
-    const leftBlank  = isTwoPage && leftDisplay === 1;
+    const leftBlank = isTwoPage && leftDisplay === 1;
     const rightBlank = isTwoPage && !showRight;
 
     const singleLayout = !isTwoPage && !showRight;
@@ -161,8 +161,8 @@ async function initViewer() {
         `<span class="pdf-info-label">Page </span>${pdfOfDisplay(leftDisplay)} of ${total}`;
     }
 
-    prev.disabled  = leftDisplay <= 1;
-    next.disabled  = leftDisplay + pagesPerSpread > displayTotal();
+    prev.disabled = leftDisplay <= 1;
+    next.disabled = leftDisplay + pagesPerSpread > displayTotal();
     cover.disabled = leftDisplay === 1;
   }
 
@@ -187,7 +187,7 @@ async function initViewer() {
 
   document.addEventListener('keydown', (e) => {
     if (e.target.matches('input, textarea, select')) return;
-    if (e.key === 'ArrowLeft')  prev.click();
+    if (e.key === 'ArrowLeft') prev.click();
     if (e.key === 'ArrowRight') next.click();
   });
 
