@@ -43,6 +43,11 @@ module.exports = function (eleventyConfig) {
   // Copy favicon to route of /_site
   eleventyConfig.addPassthroughCopy("./src/favicon.ico");
 
+  // Publish the standalone YCC 2026 post-event report at /convening-post-event-2026/
+  eleventyConfig.addPassthroughCopy({
+    "./src/_includes/reports/ycc26": "./convening-post-event-2026",
+  });
+
   // Minify HTML
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     // Eleventy 1.0+: use this.inputPath and this.outputPath instead
