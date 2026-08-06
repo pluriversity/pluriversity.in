@@ -552,31 +552,6 @@ color:white;
 Decorations
 ======================================================= */
 
-.hero-background img{
-
-position:absolute;
-
-pointer-events:none;
-
-user-select:none;
-
-}
-
-
-.dragonfly{
-
-position:absolute;
-
-top:120px;
-
-right:20%;
-
-width:80px;
-
-animation:fly 9s ease-in-out infinite;
-
-}
-
 .floating-leaf{
 
 position:absolute;
@@ -588,6 +563,69 @@ right:120px;
 width:110px;
 
 animation:floatLeaf 7s ease-in-out infinite;
+
+}
+
+/* =======================================================
+Hero Flowers — two heads at bottom-right of the hero,
+cropped at the hero's bottom edge so each is ~50% visible
+======================================================= */
+
+.hero-flower{
+
+position:absolute;
+
+width:1000px;
+
+bottom:-351px;
+
+pointer-events:none;
+
+user-select:none;
+
+display:block;
+
+}
+
+/* Centered wrapper: follows the same centered path as the
+   download section, anchored to the hero's bottom edge */
+.hero-flowers{
+
+position:absolute;
+
+left:50%;
+
+transform:translateX(-50%);
+
+bottom:0;
+
+width:min(92%,1200px);
+
+height:0;
+
+pointer-events:none;
+
+z-index:1;
+
+}
+
+.flower-left{
+
+right:130px;
+
+z-index:1;
+
+opacity:0.95;
+
+}
+
+.flower-right{
+
+right:0;
+
+z-index:2;
+
+opacity:0.98;
 
 }
 
@@ -1348,39 +1386,6 @@ transform:none;
 
 }
 
-
-/* =======================================================
-FLOATING DECORATIONS
-======================================================= */
-
-.hero-flower-left,
-
-.hero-flower-right,
-
-.decor,
-
-.dragonfly{
-
-animation-duration:8s;
-
-animation-iteration-count:infinite;
-
-animation-timing-function:ease-in-out;
-
-}
-
-.hero-flower-left{
-
-animation-name:float1;
-
-}
-
-.hero-flower-right{
-
-animation-name:float2;
-
-}
-
 /* .decor{
 
 animation-name:float3;
@@ -1543,10 +1548,22 @@ overflow: hidden;
 
 }
 
+/* ==========================
+   HERO BACKGROUND
+========================== */
+
 .hero-background {
     position: absolute;
     inset: 0;
     overflow: hidden;
+    pointer-events: none;
+}
+
+/* Hide hero flowers on tablet and below */
+.hero-flower,
+.flower-left,
+.flower-right {
+    display: none;
 }
 
 .hero-branch {
@@ -1644,18 +1661,6 @@ flex-direction:column;
 .download-actions .button{
 
 width:100%;
-
-}
-
-.hero-flower-left{
-
-width:120px;
-
-}
-
-.hero-flower-right{
-
-width:120px;
 
 }
 
