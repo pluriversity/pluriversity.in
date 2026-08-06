@@ -3,6 +3,7 @@
 
 const PDFJS_VERSION = '4.7.76';
 const PDF_URL = 'handbook.pdf';
+const RANGE_CHUNK = 1024 * 1024;
 
 const viewer = document.getElementById('pdfViewer');
 if (viewer) initViewer().catch(showError);
@@ -14,11 +15,44 @@ async function initViewer() {
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_VERSION}/build/pdf.worker.min.mjs`;
 
-  const pdf = await pdfjsLib.getDocument({url: PDF_URL,
+  // Netlify answers Range requests with 206 but omits the `Accept-Ranges`
+  // response header, which makes PDF.js's built-in loader fall back to
+  // downloading the whole file. Drive range loading ourselves instead.
+  class RangeTransport extends pdfjsLib.PDFDataRangeTransport {
+    requestDataRange(begin, end) {
+      fetch(PDF_URL, { headers: { Range: `bytes=${begin}-${end - 1}` } })
+        .then((res) => {
+          if (res.status !== 206) throw new Error(`Range request failed (${res.status})`);
+          return res.arrayBuffer();
+        })
+        .then((buf) => this.onDataRange(begin, buf))
+        .catch((err) => console.error('PDF range fetch failed:', err));
+    }
+  }
+
+  const pdfParams = {
     disableAutoFetch: true,
     disableStream: true,
-    rangeChunkSize: 1024 * 1024
-  }).promise;
+    rangeChunkSize: RANGE_CHUNK,
+  };
+  let source = { url: PDF_URL };
+  try {
+    const first = await fetch(PDF_URL, { headers: { Range: `bytes=0-${RANGE_CHUNK - 1}` } });
+    const initialData = await first.arrayBuffer();
+    if (first.status === 206) {
+      const total = parseInt(first.headers.get('Content-Range')?.split('/')[1], 10);
+      if (Number.isInteger(total)) {
+        source = { url: PDF_URL, range: new RangeTransport(total, initialData) };
+      }
+    } else if (first.status === 200) {
+      // Server ignored Range; use the full body we already received.
+      source = { data: initialData };
+    }
+  } catch (err) {
+    console.warn('PDF range probing failed; falling back to a single download:', err);
+  }
+
+  const pdf = await pdfjsLib.getDocument({ ...source, ...pdfParams }).promise;
   const total = pdf.numPages;
 
   const leftCanvas  = document.getElementById('pdfLeft');
