@@ -448,8 +448,7 @@ align-items:center;
 
 }
 
-.hero-book img,
-.hero-cover-canvas{
+.hero-book img{
 
 display: block;
 width: 100%;
@@ -463,8 +462,7 @@ transition: transform .45s ease;
 
 }
 
-.hero-book img:hover,
-.hero-cover-canvas:hover{
+.hero-book img:hover{
 
 transform:
 
@@ -721,8 +719,7 @@ align-items:center;
 
 }
 
-.download-cover img,
-.download-cover-canvas{
+.download-cover img{
 
 width:100%;
 
@@ -738,8 +735,7 @@ transition:.35s;
 
 }
 
-.download-cover img:hover,
-.download-cover-canvas:hover{
+.download-cover img:hover{
 
 transform:rotate(-3deg) scale(1.02);
 
@@ -1234,138 +1230,6 @@ height: auto
 CREDITS
 ======================================================= */
 
-.credits-section{
-
-padding:120px 0;
-
-background:rgba(255,255,255,.55);
-
-backdrop-filter:blur(12px);
-
-}
-
-.credits-grid{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:28px;
-
-margin-top:60px;
-
-}
-
-.credits-grid>div{
-
-background:white;
-
-padding:34px;
-
-border-radius:26px;
-
-box-shadow:var(--shadow);
-
-transition:.3s;
-
-}
-
-.credits-grid>div:hover{
-
-transform:translateY(-6px);
-
-}
-
-.credits-grid h4{
-
-font-family:"Cormorant Garamond",serif;
-
-font-size:1.7rem;
-
-color:var(--pink);
-
-margin-bottom:10px;
-
-}
-
-.credits-grid p{
-
-color:var(--muted);
-
-line-height:1.8;
-
-}
-
-
-/* =======================================================
-FINAL CTA
-======================================================= */
-
-.closing-section{
-
-position:relative;
-
-padding:150px 0;
-
-text-align:center;
-
-overflow:hidden;
-
-}
-
-.closing-section::before{
-
-content:"";
-
-position:absolute;
-
-inset:12% 8%;
-
-border-radius:48px;
-
-background:
-
-linear-gradient(
-135deg,
-rgba(242,91,137,.08),
-rgba(255,255,255,.65)
-);
-
-z-index:-1;
-
-}
-
-.closing-section h2{
-
-margin-bottom:24px;
-
-}
-
-.closing-section p{
-
-max-width:650px;
-
-margin:auto;
-
-font-size:1.15rem;
-
-margin-bottom:50px;
-
-}
-
-.closing-section .dragonfly{
-
-top:40px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:90px;
-
-}
-
-
 /* =======================================================
 FOOTER
 ======================================================= */
@@ -1660,12 +1524,6 @@ margin-top:0;
 
 }
 
-.credits-grid{
-
-grid-template-columns:1fr;
-
-}
-
 .footer-grid{
 
 justify-content:center;
@@ -1771,8 +1629,7 @@ flex-direction:column;
 
 }
 
-.hero-book img,
-.hero-cover-canvas{
+.hero-book img{
 
 width:90%;
 

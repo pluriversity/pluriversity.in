@@ -7,33 +7,6 @@ const PDF_URL = 'handbook.pdf';
 const viewer = document.getElementById('pdfViewer');
 if (viewer) initViewer().catch(showError);
 
-async function renderCoverThumbnails(pdf) {
-  const targets = [
-    { canvas: document.getElementById('heroCoverCanvas'),    page: 1 },
-    { canvas: document.getElementById('downloadCoverCanvas'), page: 1 },
-  ];
-
-  for (const target of targets) {
-    const canvas = target.canvas;
-    if (!canvas) continue;
-
-    const page = await pdf.getPage(target.page);
-    const baseViewport = page.getViewport({ scale: 1 });
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const cssWidth = canvas.clientWidth || canvas.parentElement.clientWidth || baseViewport.width;
-    const cssScale = cssWidth / baseViewport.width;
-    const renderViewport = page.getViewport({ scale: cssScale * dpr });
-
-    canvas.width  = Math.floor(renderViewport.width);
-    canvas.height = Math.floor(renderViewport.height);
-    canvas.style.width  = '100%';
-    canvas.style.height = 'auto';
-
-    const ctx = canvas.getContext('2d');
-    await page.render({ canvasContext: ctx, viewport: renderViewport }).promise;
-  }
-}
-
 async function initViewer() {
   const pdfjsLib = await import(
     `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_VERSION}/build/pdf.min.mjs`
@@ -43,8 +16,6 @@ async function initViewer() {
 
   const pdf = await pdfjsLib.getDocument(PDF_URL).promise;
   const total = pdf.numPages;
-
-  renderCoverThumbnails(pdf).catch(() => {});
 
   const leftCanvas  = document.getElementById('pdfLeft');
   const rightCanvas = document.getElementById('pdfRight');
