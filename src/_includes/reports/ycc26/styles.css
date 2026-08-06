@@ -779,6 +779,18 @@ transform:rotate(-3deg) scale(1.02);
 
 }
 
+.download-content{
+
+display:flex;
+
+flex-direction:column;
+
+gap:40px;
+
+align-items:flex-start;
+
+}
+
 .download-content ul{
 
 list-style:none;
@@ -787,7 +799,7 @@ display:grid;
 
 gap:18px;
 
-margin:32px 0;
+margin:0;
 
 }
 
@@ -820,8 +832,6 @@ display:flex;
 gap:18px;
 
 flex-wrap:wrap;
-
-margin-top:40px;
 
 }
 
@@ -1081,7 +1091,7 @@ transform:translateY(-8px);
 
 .highlight-card img{
 
-width:clamp(64px,7vw,130px);
+width:clamp(130px,7vw,130px);
 
 margin-bottom:24px;
 
@@ -1509,9 +1519,35 @@ text-align:center;
 
 }
 
+.download-content{
+
+align-items:center;
+
+}
+
 .download-content ul{
 
-justify-items:center;
+justify-items:start;
+
+}
+
+.download-content li{
+
+text-align:left;
+
+}
+
+.pdf-spread{
+
+grid-template-columns:1fr;
+
+min-height:420px;
+
+}
+
+.pdf-page:last-child{
+
+display:none;
 
 }
 
@@ -1606,20 +1642,6 @@ padding:30px;
 .preview-frame{
 
 padding:18px;
-
-}
-
-.pdf-spread{
-
-grid-template-columns:1fr;
-
-min-height:420px;
-
-}
-
-.pdf-page:last-child{
-
-display:none;
 
 }
 

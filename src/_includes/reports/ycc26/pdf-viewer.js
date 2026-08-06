@@ -32,7 +32,7 @@ async function initViewer() {
   // opens as (blank | P1, P2 | P3, …). Single-page view starts at the cover (P1).
   // We navigate in "display" indices where the two-page sequence is
   // [blank(1), P1(2), P2(3), …] and the single-page sequence is [P1(1), P2(2), …].
-  const mqSpread = window.matchMedia('(min-width: 720px)');
+  const mqSpread = window.matchMedia('(min-width: 1100px)');
   let pagesPerSpread = mqSpread.matches ? 2 : 1;
   const displayTotal = () => pagesPerSpread === 2 ? total + 1 : total;
   const minDisplay   = () => 1;
@@ -63,9 +63,10 @@ async function initViewer() {
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const gap = parseFloat(getComputedStyle(spread).columnGap) || 0;
+    const pad = parseFloat(getComputedStyle(spread).paddingLeft) || 0;
     const slotWidth = pagesPerSpread === 2
-      ? (spread.clientWidth - gap) / 2
-      : spread.clientWidth;
+      ? (spread.clientWidth - pad * 2 - gap) / 2
+      : spread.clientWidth - pad * 2;
     const cssScale = slotWidth / baseViewport.width;
     const renderViewport = page.getViewport({ scale: cssScale * dpr });
 
@@ -118,18 +119,19 @@ async function initViewer() {
     spread.classList.toggle('has-dummy', leftBlank || rightBlank);
 
     // Render the real page first so a blank partner can mirror its size.
-    let leftHeight = null, rightHeight = null;
     if (showRight && !(await renderPage(pdfOfDisplay(rightDisplay), rightCanvas, token))) return;
     if (!leftBlank && !(await renderPage(pdfOfDisplay(leftDisplay), leftCanvas, token))) return;
     if (token !== renderToken) return;
 
     if (leftBlank) {
-      rightHeight = parseFloat(rightCanvas.style.height) || 0;
-      renderBlank(leftCanvas, rightCanvas.width, rightHeight);
+      const blankW = parseFloat(rightCanvas.style.width) || rightCanvas.width;
+      const blankH = parseFloat(rightCanvas.style.height) || rightCanvas.height;
+      renderBlank(leftCanvas, blankW, blankH);
     }
     if (rightBlank) {
-      leftHeight = parseFloat(leftCanvas.style.height) || 0;
-      renderBlank(rightCanvas, leftCanvas.width, leftHeight);
+      const blankW = parseFloat(leftCanvas.style.width) || leftCanvas.width;
+      const blankH = parseFloat(leftCanvas.style.height) || leftCanvas.height;
+      renderBlank(rightCanvas, blankW, blankH);
     }
     if (token !== renderToken) return;
 
