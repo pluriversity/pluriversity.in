@@ -14,7 +14,11 @@ async function initViewer() {
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_VERSION}/build/pdf.worker.min.mjs`;
 
-  const pdf = await pdfjsLib.getDocument(PDF_URL).promise;
+  const pdf = await pdfjsLib.getDocument({url: PDF_URL,
+    disableAutoFetch: true,
+    disableStream: false,
+    rangeChunkSize: 1024 * 1024
+  }).promise;
   const total = pdf.numPages;
 
   const leftCanvas  = document.getElementById('pdfLeft');
