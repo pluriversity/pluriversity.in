@@ -875,7 +875,9 @@ gap:18px;
 
 margin-bottom:28px;
 
-flex-wrap:wrap;
+flex-wrap:nowrap;
+
+white-space:nowrap;
 
 }
 
@@ -890,6 +892,10 @@ cursor:pointer;
 padding:12px 24px;
 
 border-radius:999px;
+
+font-size:clamp(.8rem,2vw,1rem);
+
+white-space:nowrap;
 
 background:var(--paper);
 
@@ -929,7 +935,9 @@ font-weight:700;
 
 color:var(--muted);
 
-min-width:140px;
+min-width:clamp(110px,22vw,140px);
+
+white-space:nowrap;
 
 text-align:center;
 
@@ -1683,6 +1691,18 @@ flex-direction:column;
 .download-actions .button{
 
 width:100%;
+
+}
+
+.preview-toolbar{
+
+gap:8px;
+
+}
+
+.preview-toolbar .pdf-btn{
+
+padding:10px 14px;
 
 }
 
