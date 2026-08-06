@@ -16,7 +16,7 @@ async function initViewer() {
 
   const pdf = await pdfjsLib.getDocument({url: PDF_URL,
     disableAutoFetch: true,
-    disableStream: false,
+    disableStream: true,
     rangeChunkSize: 1024 * 1024
   }).promise;
   const total = pdf.numPages;
