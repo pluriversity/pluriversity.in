@@ -64,7 +64,7 @@ async function initViewer() {
   const next        = document.getElementById('pdfNext');
   const cover       = document.getElementById('pdfCover');
 
-  loading.remove();
+  let paintedOnce = false;
 
   // Two-page (desktop) view renders a virtual blank on the left so the book
   // opens as (blank | P1, P2 | P3, …). Single-page view starts at the cover (P1).
@@ -90,6 +90,43 @@ async function initViewer() {
   let rendering = false;
   let pendingRerender = false;
 
+  const CACHE_LIMIT = 12;
+  const preloaded = new Map();
+  let preloadBusy = false;
+  let preloadPending = false;
+  let preloadVersion = 0;
+
+  const slotSize = () => {
+    const gap = parseFloat(getComputedStyle(spread).columnGap) || 0;
+    const pad = parseFloat(getComputedStyle(spread).paddingLeft) || 0;
+    return pagesPerSpread === 2
+      ? (spread.clientWidth - pad * 2 - gap) / 2
+      : spread.clientWidth - pad * 2;
+  };
+
+  const dprCap = () => Math.min(window.devicePixelRatio || 1, 2);
+
+  const scaleSig = () => `${pagesPerSpread}:${slotSize()}:${dprCap()}`;
+
+  const cacheKey = (num) => `${num}:${scaleSig()}`;
+
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  function setCanvas(dst, pxW, pxH, cssW, cssH) {
+    dst.width = pxW;
+    dst.height = pxH;
+    dst.style.width = `${cssW}px`;
+    dst.style.height = `${cssH}px`;
+  }
+
+  function blitCanvas(dst, src) {
+    setCanvas(dst, src.width, src.height,
+      parseFloat(src.style.width), parseFloat(src.style.height));
+    const ctx = dst.getContext('2d');
+    ctx.clearRect(0, 0, dst.width, dst.height);
+    ctx.drawImage(src, 0, 0);
+  }
+
   // Render page `num` into an offscreen canvas, then synchronously blit it
   // into the visible `canvas` only if this render is still current. Rendering
   // offscreen means a stale PDF.js task (which can't be cancelled) can never
@@ -98,19 +135,14 @@ async function initViewer() {
     const page = await pdf.getPage(num);
     if (token !== renderToken) return false;
     const baseViewport = page.getViewport({ scale: 1 });
-
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const gap = parseFloat(getComputedStyle(spread).columnGap) || 0;
-    const pad = parseFloat(getComputedStyle(spread).paddingLeft) || 0;
-    const slotWidth = pagesPerSpread === 2
-      ? (spread.clientWidth - pad * 2 - gap) / 2
-      : spread.clientWidth - pad * 2;
-    const cssScale = slotWidth / baseViewport.width;
-    const renderViewport = page.getViewport({ scale: cssScale * dpr });
+    const cssScale = slotSize() / baseViewport.width;
+    const renderViewport = page.getViewport({ scale: cssScale * dprCap() });
 
     const off = document.createElement('canvas');
     off.width  = Math.floor(renderViewport.width);
     off.height = Math.floor(renderViewport.height);
+    off.style.width  = `${Math.floor(baseViewport.width * cssScale)}px`;
+    off.style.height = `${Math.floor(baseViewport.height * cssScale)}px`;
 
     const offCtx = off.getContext('2d');
     await page.render({ canvasContext: offCtx, viewport: renderViewport }).promise;
@@ -118,15 +150,87 @@ async function initViewer() {
     // Synchronous blit; superseded renders abort here and never draw.
     if (token !== renderToken) return false;
 
-    canvas.width  = Math.floor(renderViewport.width);
-    canvas.height = Math.floor(renderViewport.height);
-    canvas.style.width  = `${Math.floor(baseViewport.width * cssScale)}px`;
-    canvas.style.height = `${Math.floor(baseViewport.height * cssScale)}px`;
-
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(off, 0, 0);
+    preloaded.set(cacheKey(num), off);
+    trimCache();
+    blitCanvas(canvas, off);
     return true;
+  }
+
+  async function renderPageInto(num, canvas, token) {
+    const key = cacheKey(num);
+    const cached = preloaded.get(key);
+    if (cached) {
+      if (token !== renderToken) return false;
+      blitCanvas(canvas, cached);
+      preloaded.delete(key);
+      preloaded.set(key, cached);
+      return true;
+    }
+    return renderPage(num, canvas, token);
+  }
+
+  async function renderOffscreen(num, sig) {
+    const page = await pdf.getPage(num);
+    const baseViewport = page.getViewport({ scale: 1 });
+    const parts = sig.split(':');
+    const slotW = Number(parts[1]);
+    const dpr = Number(parts[2]);
+    const cssScale = slotW / baseViewport.width;
+    const renderViewport = page.getViewport({ scale: cssScale * dpr });
+
+    const off = document.createElement('canvas');
+    off.width  = Math.floor(renderViewport.width);
+    off.height = Math.floor(renderViewport.height);
+    off.style.width  = `${Math.floor(baseViewport.width * cssScale)}px`;
+    off.style.height = `${Math.floor(baseViewport.height * cssScale)}px`;
+
+    const ctx = off.getContext('2d');
+    await page.render({ canvasContext: ctx, viewport: renderViewport }).promise;
+    return off;
+  }
+
+  function trimCache() {
+    while (preloaded.size > CACHE_LIMIT) {
+      const oldest = preloaded.keys().next().value;
+      preloaded.delete(oldest);
+    }
+  }
+
+  async function preloadAll() {
+    if (preloadBusy) { preloadPending = true; return; }
+    preloadBusy = true;
+    preloadPending = false;
+    try {
+      const version = preloadVersion;
+      const sig = scaleSig();
+      for (let num = 2; num <= total; num++) {
+        if (version !== preloadVersion) break;
+        while (rendering) {
+          await sleep(60);
+          if (version !== preloadVersion) break;
+        }
+        if (version !== preloadVersion) break;
+        const key = `${num}:${sig}`;
+        if (!preloaded.has(key)) {
+          try {
+            const canvas = await renderOffscreen(num, sig);
+            if (version === preloadVersion) {
+              preloaded.set(key, canvas);
+              trimCache();
+            }
+          } catch (err) {
+            console.error(`preload failed for page ${num}:`, err);
+          }
+        }
+        await sleep(60);
+      }
+    } finally {
+      preloadBusy = false;
+      if (preloadPending) {
+        preloadPending = false;
+        preloadAll();
+      }
+    }
   }
 
   // Fill a canvas with a plain white page matching the given dimensions.
@@ -157,8 +261,8 @@ async function initViewer() {
     spread.classList.toggle('has-dummy', leftBlank || rightBlank);
 
     // Render the real page first so a blank partner can mirror its size.
-    if (showRight && !(await renderPage(pdfOfDisplay(rightDisplay), rightCanvas, token))) return;
-    if (!leftBlank && !(await renderPage(pdfOfDisplay(leftDisplay), leftCanvas, token))) return;
+    if (showRight && !(await renderPageInto(pdfOfDisplay(rightDisplay), rightCanvas, token))) return;
+    if (!leftBlank && !(await renderPageInto(pdfOfDisplay(leftDisplay), leftCanvas, token))) return;
     if (token !== renderToken) return;
 
     if (leftBlank) {
@@ -190,6 +294,8 @@ async function initViewer() {
     prev.disabled  = leftDisplay <= 1;
     next.disabled  = leftDisplay + pagesPerSpread > displayTotal();
     cover.disabled = leftDisplay === 1;
+
+    paintedOnce = true;
   }
 
   // Serialize rendering so only one PDF.js render runs at a time. Rapid
@@ -223,8 +329,11 @@ async function initViewer() {
 
   mqSpread.addEventListener('change', (e) => {
     pagesPerSpread = e.matches ? 2 : 1;
+    preloaded.clear();
+    preloadVersion++;
     clampDisplay();
     renderSpread();
+    preloadAll();
   });
 
   document.addEventListener('keydown', (e) => {
@@ -236,10 +345,22 @@ async function initViewer() {
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(renderSpread, 180);
+    resizeTimer = setTimeout(() => {
+      preloaded.clear();
+      preloadVersion++;
+      renderSpread();
+      preloadAll();
+    }, 180);
   });
 
   await renderSpread();
+
+  if (paintedOnce && loading) {
+    loading.classList.add('is-done');
+    setTimeout(() => loading.remove(), 500);
+  }
+
+  preloadAll();
 }
 
 function showError(err) {
