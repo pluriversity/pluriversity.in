@@ -1251,6 +1251,20 @@ font-size:1.65rem;
 
 }
 
+@media(min-width:640px) and (max-width:1023px){
+
+.highlight-grid .highlight-card:last-child{
+
+grid-column:1 / -1;
+
+justify-self:center;
+
+width:min(100%,420px);
+
+}
+
+}
+
 /* =======================================================
 SECTION DECORATIONS
 ======================================================= */
@@ -1710,7 +1724,8 @@ text-align:center;
 }
 
 .about-art {
-  max-width: 200px;
+  width: 100%;
+  max-width: 360px;
   margin: 0 auto;
 }
 
@@ -1811,7 +1826,7 @@ font-size:2.8rem;
 
 .about-art img{
 
-width:min(100%,100px);
+width:min(100%,260px);
 
 }
 
@@ -1892,7 +1907,7 @@ opacity:.6;
 
 .about-art img{
 
-width:min(100%,200px);
+width:min(100%,180px);
 
 }
 
