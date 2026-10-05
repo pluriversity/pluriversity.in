@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default('en') }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {# settings.url is the single source of truth for the origin. Nunjucks'
+       replace filter is literal (not regex), so trim the trailing slash
+       with slice to keep the joined path free of a double slash. #}
+    {% set siteOrigin = siteUrl | default(settings.url, true) | trim %}
+    {% if siteOrigin.slice(-1) == '/' %}
+      {% set siteOrigin = siteOrigin.slice(0, -1) %}
+    {% endif %}
+    {% set siteUrl = siteOrigin %}
+    {% set ogImage = image | default(siteUrl + '/static/img/form-and-linkedin-header.png') %}
+    {% set pagePath = canonical | default(page.url | replace('/index.html', '/')) %}
+    {% set fullTitle = title + (titleSuffix | default(' | Pluriversity')) %}
+    {% set metaDescription = description | default('Pluriversity convenes young climate leaders, builds collaborative spaces and documents the work of social movements.') %}
+
+    <title>{{ fullTitle }}</title>
+    <meta name="description" content="{{ metaDescription }}">
+
+    {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}">
+    {% endif %}
+    <meta name="robots" content="{{ robots | default('index, follow') }}">
+    <meta name="author" content="Pluriversity">
+    <meta name="theme-color" content="#F2557A">
+    <link rel="canonical" href="{{ siteUrl }}{{ pagePath }}">
+
+    <meta property="og:site_name" content="Pluriversity">
+    <meta property="og:type" content="{{ ogType | default('website') }}">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:title" content="{{ fullTitle }}">
+    <meta property="og:description" content="{{ metaDescription }}">
+    <meta property="og:url" content="{{ siteUrl }}{{ pagePath }}">
+    <meta property="og:image" content="{{ ogImage }}">
+    <meta property="og:image:alt" content="{{ imageAlt | default(title) }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Pluriversity">
+    <meta name="twitter:title" content="{{ fullTitle }}">
+    <meta name="twitter:description" content="{{ metaDescription }}">
+    <meta name="twitter:image" content="{{ ogImage }}">
+    <meta name="twitter:image:alt" content="{{ imageAlt | default(title) }}">
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body>
+    {{ content | safe }}
+  </body>
+</html>
