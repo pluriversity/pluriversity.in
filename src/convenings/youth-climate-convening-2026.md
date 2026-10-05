@@ -37,5 +37,4 @@ I am hopeful that YCC will continue to hold such spaces for me and other young p
 
 Read the YCC 2026 report here: [Read Here](/convening-post-event-2026/)
 
-
 <!--EndFragment-->
