@@ -9,6 +9,8 @@ tags:
 ---
 <!--StartFragment-->
 
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7513217693534322688?compact=1" style="display: block; margin: 0 auto; width: 100%; max-width: 504px; aspect-ratio: 504 / 399; height: auto;" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
 In the space of social development, some stories inspire us: the experiences that help us become better people, the relationships that are necessary and purposeful, the feeling of belongingness, the happiness of every small achievement, the anxiety of not being able to do a lot, the weight of stories that carry grief, loss, loneliness and hopelessness. And along with all this, our own lived realities.  
 
 I have often craved a space where I could open up my anxieties and vulnerabilities. Where I can share about the silent, unnoticed struggles of listening to overwhelming stories, connecting with them, and realising that injustice has not just engulfed me but is brutally affecting many vulnerable people and communities. The weight is sometimes so heavy that it affects my overall well-being. I felt the need for space for many years. The space where I should feel safe enough not to worry about judgments, privacy, loss of resources, opportunities, and connections. 
